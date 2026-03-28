@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jegan Cable Mangadu Broadband Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>📡 Jegan Cable Mangadu Broadband Platform</h1>
+
+    <section id="loginCard" class="card">
+      <div class="row two">
+        <div>
+          <h3>Customer Login</h3>
+          <input id="custId" placeholder="JCM001" />
+          <input id="custPass" type="password" placeholder="Password" />
+          <button id="holdBtn">Hold to Connect 🔌</button>
+          <div class="progress"><i id="holdProgress"></i></div>
+        </div>
+        <div>
+          <h3>Admin Login</h3>
+          <input id="adminEmail" placeholder="admin@example.com" />
+          <input id="adminPass" type="password" placeholder="Password" />
+          <button id="adminLoginBtn">Admin Sign In</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="customerDash" class="hidden">
+      <div class="card row two">
+        <h2 id="custTitle">Customer Dashboard</h2>
+        <div class="right"><button id="logoutCust" class="secondary">Logout</button></div>
+      </div>
+      <div id="reminderBanner" class="pill warn hidden"></div>
+      <div id="expiredBanner" class="pill bad hidden">⚠️ Plan expired</div>
+      <div class="card" id="custProfile"></div>
+      <div class="card">
+        <h3>💳 Make Payment</h3>
+        <input id="txnId" placeholder="Transaction ID" />
+        <input id="amount" type="number" placeholder="Amount" />
+        <button id="submitPayment">Submit Payment</button>
+      </div>
+      <div class="card"><h3>🧾 Payment History</h3><div id="paymentHistory"></div></div>
+    </section>
+
+    <section id="adminDash" class="hidden">
+      <div class="card row two">
+        <h2>Admin Dashboard</h2>
+        <div class="right"><button id="logoutAdmin" class="secondary">Logout</button></div>
+      </div>
+      <div class="card"><nav>
+        <button class="tab active" data-tab="customers">Customers</button>
+        <button class="tab" data-tab="payments">Payments</button>
+      </nav></div>
+      <div id="tab-customers" class="card tabpane"></div>
+      <div id="tab-payments" class="card tabpane hidden"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <div id="loading" class="loading hidden">Loading...</div>
+  <script src="app.js"></script>
+</body>
+</html>
