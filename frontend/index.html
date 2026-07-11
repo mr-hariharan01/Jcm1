@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jegan Cable Mangadu Broadband Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>📡 Jegan Cable Mangadu Broadband Platform</h1>
+
+    <section id="loginCard" class="card">
+      <div class="row two">
+        <div>
+          <h3>Customer Login</h3>
+          <input id="custId" placeholder="JCM001" />
+          <input id="custPass" type="password" placeholder="Password" />
+          <button id="holdBtn">Press & Hold to Connect 🔌</button>
+          <div class="progress"><i id="holdProgress"></i></div>
+          <small id="loginHint">Use your customer ID and password.</small>
+        </div>
+        <div>
+          <h3>Admin Login</h3>
+          <input id="adminEmail" placeholder="admin@jcm.local" />
+          <input id="adminPass" type="password" placeholder="Password" />
+          <button id="adminLoginBtn">Admin Sign In</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="customerDash" class="hidden">
+      <div class="card row two">
+        <h2 id="custTitle">Customer Dashboard</h2>
+        <div class="right actions">
+          <button id="notifBtn" class="secondary notif">🔔<span id="notifCount" class="badge hidden">0</span></button>
+          <button id="logoutCust" class="secondary">Logout</button>
+        </div>
+      </div>
+      <div id="reminderBanner" class="pill warn hidden"></div>
+      <div id="expiredBanner" class="pill bad hidden">⚠️ Your connection has expired.</div>
+      <div class="card" id="custProfile"></div>
+
+      <div class="card">
+        <h3>💳 Payment</h3>
+        <div class="row two">
+          <div>
+            <button id="payNow">Pay Now (UPI)</button>
+          </div>
+          <div>
+            <input id="txnId" placeholder="Transaction ID" />
+            <input id="amount" type="number" placeholder="Amount" />
+            <button id="submitPayment">Submit Payment</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card"><h3>🧾 Payment History</h3><div id="paymentHistory"></div></div>
+
+      <div class="card">
+        <h3>🎫 Ticket Support</h3>
+        <div class="row three">
+          <input id="ticketSubject" placeholder="Subject" />
+          <input id="ticketMessage" placeholder="Message" />
+          <button id="submitTicket">Raise Ticket</button>
+        </div>
+        <div id="ticketHistory"></div>
+      </div>
+
+      <div class="card">
+        <h3>📈 Connection Insights</h3>
+        <canvas id="statusChart" height="130"></canvas>
+      </div>
+    </section>
+
+    <section id="adminDash" class="hidden">
+      <div class="card row two">
+        <h2>Admin Dashboard</h2>
+        <div class="right"><button id="logoutAdmin" class="secondary">Logout</button></div>
+      </div>
+
+      <div class="card">
+        <nav>
+          <button class="tab active" data-tab="overview">Overview</button>
+          <button class="tab" data-tab="customers">Customers</button>
+          <button class="tab" data-tab="payments">Payments</button>
+          <button class="tab" data-tab="tickets">Tickets</button>
+        </nav>
+      </div>
+
+      <div id="tab-overview" class="card tabpane"></div>
+      <div id="tab-customers" class="card tabpane hidden"></div>
+      <div id="tab-payments" class="card tabpane hidden"></div>
+      <div id="tab-tickets" class="card tabpane hidden"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <div id="loading" class="loading hidden">Loading...</div>
+  <script src="app.js"></script>
+</body>
+</html>
